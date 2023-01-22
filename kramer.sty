@@ -1,0 +1,186 @@
+%%%%%%%%%%%%%%%%%%
+% kramer.sty
+% Daniel Kramer's useful/command custom latex commands
+% v0.1.0
+%
+%
+% (c) Daniel Kramer 2023
+%%%%%%%%%%%%%%%%%%%
+
+%%%%%%%%%%%%%%%%%%%%%%
+% Required Packages
+%%%%%%%%%%%%%%%%%%%%%%
+
+\usepackage{xspace}
+\usepackage[colorlinks=true]{hyperref}
+\usepackage{acro}
+\usepackage{etoolbox}
+\usepackage{xcolor}
+
+%%%%%%%%%%%%%%%%%%%%%%
+% Custom Commands 
+%%%%%%%%%%%%%%%%%%%%%%
+
+% TODO command
+% Will have a warning if one exist
+% Usage: \todo{Something that needs to be done}
+\newcommand{\todo}[1]{(\textbf{{#1}})\PackageWarning{Kramer-Commands}{TODO in document. Fix and remove}}
+
+% Command for correct spelling of periodogram.
+\def\pgram{periodogram}
+\def\Pgram{Periodogram}
+
+% Command for making a custom text (1) have a hyper link with the url also in a footnote
+% Requires: hyperref
+% Usage: \linkfoot{www.google.com}{Google}
+\newcommand{\linkfoot}[2]{\href{#2}{#1}\footnote{\url{#2}}}
+
+
+%%%%%%%%%%%%%%%%%%%%%%
+% Abbreviations
+%%%%%%%%%%%%%%%%%%%%%%
+
+\acsetup{
+    cite/group = true ,
+    cite/cmd = \parencite ,
+    cite/group/cmd = \cite,
+    cite/group/pre={, },
+}
+
+% Needs the following bibtex entries
+% If it already exist, plase make sure it has the same identifier
+% @ARTICLE{1982ApJ...263..835S, author = {{Scargle}, J.~D.}, title = "{Studies in astronomical time series analysis. II. Statistical aspects of spectral analysis of unevenly spaced data.}", journal = {Astrophysical Journal}, keywords = {Astronomy, Signal Detection, Spectrum Analysis, Statistical Distributions, Time Series Analysis, Fourier Transformation, Frequency Response, Power Spectra, Signal To Noise Ratios, Astronomy}, year = 1982, month = dec, volume = {263}, pages = {835-853}, doi = {10.1086/160554}, adsurl = {https://ui.adsabs.harvard.edu/abs/1982ApJ...263..835S}, adsnote = {Provided by the SAO/NASA Astrophysics Data System} }
+% @ARTICLE{1976Ap&SS..39..447L, author = {{Lomb}, N.~R.}, title = "{Least-Squares Frequency Analysis of Unequally Spaced Data}", journal = {Astrophysics and Space Science}, keywords = {Astronomy, Data Reduction, Least Squares Method, Background Noise, Power Spectra, Sine Waves, Spectrum Analysis, Statistical Analysis, Variable Stars, Astronomy}, year = 1976, month = feb, volume = {39}, number = {2}, pages = {447-462}, doi = {10.1007/BF00648343}, adsurl = {https://ui.adsabs.harvard.edu/abs/1976Ap&SS..39..447L}, adsnote = {Provided by the SAO/NASA Astrophysics Data System} }
+
+\DeclareAcronym{ls}{
+    short=L-S,
+    long=Lomb-Scargle,
+    cite={1976Ap&SS..39..447L,1982ApJ...263..835S}
+}
+\newcommand{\ls}[0]{\ac{ls}\xspace}
+
+% Needs the following bibtex entries
+% If it already exist, plase make sure it has the same identifier
+% @ARTICLE{1982ApJ...263..835S, author = {{Scargle}, J.~D.}, title = "{Studies in astronomical time series analysis. II. Statistical aspects of spectral analysis of unevenly spaced data.}", journal = {Astrophysical Journal}, keywords = {Astronomy, Signal Detection, Spectrum Analysis, Statistical Distributions, Time Series Analysis, Fourier Transformation, Frequency Response, Power Spectra, Signal To Noise Ratios, Astronomy}, year = 1982, month = dec, volume = {263}, pages = {835-853}, doi = {10.1086/160554}, adsurl = {https://ui.adsabs.harvard.edu/abs/1982ApJ...263..835S}, adsnote = {Provided by the SAO/NASA Astrophysics Data System} }
+% @ARTICLE{1976Ap&SS..39..447L, author = {{Lomb}, N.~R.}, title = "{Least-Squares Frequency Analysis of Unequally Spaced Data}", journal = {Astrophysics and Space Science}, keywords = {Astronomy, Data Reduction, Least Squares Method, Background Noise, Power Spectra, Sine Waves, Spectrum Analysis, Statistical Analysis, Variable Stars, Astronomy}, year = 1976, month = feb, volume = {39}, number = {2}, pages = {447-462}, doi = {10.1007/BF00648343}, adsurl = {https://ui.adsabs.harvard.edu/abs/1976Ap&SS..39..447L}, adsnote = {Provided by the SAO/NASA Astrophysics Data System} }
+
+\DeclareAcronym{lsp}{
+    short=LSP,
+    long=Lomb-Scargle Periodogram,
+    cite={1976Ap&SS..39..447L,1982ApJ...263..835S}
+}
+\newcommand{\lsp}[0]{\ac{lsp}\xspace}
+
+% Needs the following bibtex entry 
+% If it already exist, plase make sure it has the same identifier
+% @ARTICLE{2019ApJ...873..111I, author = {{Ivezi{\'c}}, {\v Z}. and {Kahn}, S.~M. and {Tyson}, J.~A. and {Abel}, B. and {Acosta}, E. and {Allsman}, R. and {Alonso}, D. and {AlSayyad}, Y. and {Anderson}, S.~F. and {Andrew}, J. and et al.}, title = "{LSST: From Science Drivers to Reference Design and Anticipated Data Products}", journal = {Astrophysical Journal}, archivePrefix = "arXiv", eprint = {0805.2366}, keywords = {astrometry, cosmology: observations, Galaxy: general, methods: observational, stars: general, surveys}, year = 2019, month = mar, volume = 873, eid = {111}, pages = {111}, doi = {10.3847/1538-4357/ab042c}, adsurl = {http://adsabs.harvard.edu/abs/2019ApJ...873..111I}, adsnote = {Provided by the SAO/NASA Astrophysics Data System} }
+\DeclareAcronym{lsst}{
+    short=LSST,
+    long=Legacy Survey of Space and Time,
+    cite=2019ApJ...873..111I,
+}
+\newcommand{\lsst}[0]{\ac{lsst}\xspace}
+
+% Needs the following bibtex entry 
+% If it already exist, plase make sure it has the same identifier
+% @article{bellm_zwicky_2018, doi = {10.1088/1538-3873/aaecbe}, url = {https://doi.org/10.1088/1538-3873/aaecbe}, year = 2018, month = {dec}, publisher = {{IOP} Publishing}, volume = {131}, number = {995}, pages = {018002}, author = {Eric C. Bellm and Shrinivas R. Kulkarni and Matthew J. Graham and Richard Dekany and Roger M. Smith and Reed Riddle and Frank J. Masci and George Helou and Thomas A. Prince and Scott M. Adams and C. Barbarino and Tom Barlow and James Bauer and Ron Beck and Justin Belicki and Rahul Biswas and Nadejda Blagorodnova and Dennis Bodewits and Bryce Bolin and Valery Brinnel and Tim Brooke and Brian Bue and Mattia Bulla and Rick Burruss and S. Bradley Cenko and Chan-Kao Chang and Andrew Connolly and Michael Coughlin and John Cromer and Virginia Cunningham and Kishalay De and Alex Delacroix and Vandana Desai and Dmitry A. Duev and Gwendolyn Eadie and Tony L. Farnham and Michael Feeney and Ulrich Feindt and David Flynn and Anna Franckowiak and S. Frederick and C. Fremling and Avishay Gal-Yam and Suvi Gezari and Matteo Giomi and Daniel A. Goldstein and V. Zach Golkhou and Ariel Goobar and Steven Groom and Eugean Hacopians and David Hale and John Henning and Anna Y. Q. Ho and David Hover and Justin Howell and Tiara Hung and Daniela Huppenkothen and David Imel and Wing-Huen Ip and {\v{Z}}eljko Ivezi{\'{c}} and Edward Jackson and Lynne Jones and Mario Juric and Mansi M. Kasliwal and S. Kaspi and Stephen Kaye and Michael S. P. Kelley and Marek Kowalski and Emily Kramer and Thomas Kupfer and Walter Landry and Russ R. Laher and Chien-De Lee and Hsing Wen Lin and Zhong-Yi Lin and Ragnhild Lunnan and Matteo Giomi and Ashish Mahabal and Peter Mao and Adam A. Miller and Serge Monkewitz and Patrick Murphy and Chow-Choong Ngeow and Jakob Nordin and Peter Nugent and Eran Ofek and Maria T. Patterson and Bryan Penprase and Michael Porter and Ludwig Rauch and Umaa Rebbapragada and Dan Reiley and Mickael Rigault and Hector Rodriguez and Jan van Roestel and Ben Rusholme and Jakob van Santen and S. Schulze and David L. Shupe and Leo P. Singer and Maayane T. Soumagnac and Robert Stein and Jason Surace and Jesper Sollerman and Paula Szkody and F. Taddia and Scott Terek and Angela Van Sistine and Sjoert van Velzen and W. Thomas Vestrand and Richard Walters and Charlotte Ward and Quan-Zhi Ye and Po-Chieh Yu and Lin Yan and Jeffry Zolkower}, title = {The Zwicky Transient Facility: System Overview, Performance, and First Results}, journal = {Publications of the Astronomical Society of the Pacific}, abstract = {The Zwicky Transient Facility (ZTF) is a new optical time-domain survey that uses the Palomar 48 inch Schmidt telescope. A custom-built wide-field camera provides a 47 deg2 field of view and 8 s readout time, yielding more than an order of magnitude improvement in survey speed relative to its predecessor survey, the Palomar Transient Factory. We describe the design and implementation of the camera and observing system. The ZTF data system at the Infrared Processing and Analysis Center provides near-real-time reduction to identify moving and varying objects. We outline the analysis pipelines, data products, and associated archive. Finally, we present on-sky performance analysis and first scientific results from commissioning and the early survey. ZTF’s public alert stream will serve as a useful precursor for that of the Large Synoptic Survey Telescope.} }
+\DeclareAcronym{ztf}{
+    short=ZTF,
+    long=Zwicky Transient Facility,
+    cite=bellm_zwicky_2018
+}
+\newcommand{\ztf}[0]{\ac{ztf}\xspace}
+
+
+
+
+%%%%%%%%%%%%%%%%%%%%%%
+% Colors
+%%%%%%%%%%%%%%%%%%%%%%
+
+% Provides a list of colorblind friendly colors
+% If the following colors are used, plase use the following in your Acknowledgements section:
+% The colors used in the plots and other parts of this paper uses the Wong color pallet and its extensions (\citet{wong_points_2011}; \url{https://davidmathlogic.com/colorblind/}).
+%
+% With this bibtex entry
+% @article{wong_points_2011, title = {Points of View: {{Color}} Blindness}, shorttitle = {Points of View}, author = {Wong, Bang}, year = {2011}, month = jun, journal = {Nature Methods}, volume = {8}, number = {6}, pages = {441--441}, publisher = {{Nature Publishing Group}}, issn = {1548-7105}, doi = {10.1038/nmeth.1618}, copyright = {2011 Nature Publishing Group, a division of Macmillan Publishers Limited. All Rights Reserved.}, langid = {english}, keywords = {Media formats} }
+
+% Color names from https://colornamer.robertcooper.me/
+\definecolor{black}{RGB}{0,0,0}
+\definecolor{hotbutter}{RGB}{230,159,0}
+\definecolor{bluejeans}{RGB}{86,180,233}
+\definecolor{freespeechaquamarine}{RGB}{0,158,115}
+\definecolor{highlighteryellow}{RGB}{240,228,66}
+\definecolor{postit}{RGB}{0,114,178}
+\definecolor{exuberance}{RGB}{213,94,0}
+\definecolor{heartbreaker}{RGB}{204,121,167}
+\definecolor{crowberry}{RGB}{38,2,79}
+\definecolor{rockpool}{RGB}{77,162,158}
+\definecolor{purplepink}{RGB}{212,67,188}
+\definecolor{spirodiscoball}{RGB}{25,197,250}
+\definecolor{babyblueeyes}{RGB}{158,199,247}
+\definecolor{cooltouch}{RGB}{117,149,201}
+\definecolor{redeye}{RGB}{229,23,87}
+\definecolor{guillimanblue}{RGB}{104,150,238}
+\definecolor{brandywinespritz}{RGB}{231,155,175}
+\definecolor{tuplipolarpurple}{RGB}{84,27,52}
+\definecolor{invasiveindigo}{RGB}{76,0,126}
+\definecolor{chunliblue}{RGB}{20,73,229}
+\definecolor{seljukblue}{RGB}{69,143,241}
+\definecolor{stadiumlawn}{RGB}{151,247,89}
+\definecolor{fuchsia}{RGB}{249,15,216}
+\definecolor{robinsegg}{RGB}{114,229,255}
+\definecolor{firmpink}{RGB}{219,140,192}
+\definecolor{jetaime}{RGB}{181,103,148}
+\definecolor{scorzonerabrown}{RGB}{89,80,11}
+\definecolor{whisperingwillow}{RGB}{140,157,129}
+\definecolor{tempermantalgreen}{RGB}{42,139,39}
+\definecolor{shadesofrhodonite}{RGB}{175,48,219}
+\definecolor{iolite}{RGB}{127,137,183}
+\definecolor{toxicfrog}{RGB}{162,246,157}
+
+% Create the color list
+\newcounter{ColorList}
+\newcommand{\ColorList}{}
+\newcommand{\addcolor}[1]{%
+  \stepcounter{ColorList}%
+  \csdef{ColorList\theColorList}{#1}}
+\newcommand{\getcolor}[1]{%
+  \csuse{ColorList#1}}
+
+% Add all of the colors
+\addcolor{black}
+\addcolor{hotbutter}
+\addcolor{bluejeans}
+\addcolor{freespeechaquamarine}
+\addcolor{highlighteryellow}
+\addcolor{postit}
+\addcolor{exuberance}
+\addcolor{heartbreaker}
+\addcolor{crowberry}
+\addcolor{rockpool}
+\addcolor{purplepink}
+\addcolor{spirodiscoball}
+\addcolor{babyblueeyes}
+\addcolor{cooltouch}
+\addcolor{redeye}
+\addcolor{guillimanblue}
+\addcolor{brandywinespritz}
+\addcolor{tuplipolarpurple}
+\addcolor{invasiveindigo}
+\addcolor{chunliblue}
+\addcolor{seljukblue}
+\addcolor{stadiumlawn}
+\addcolor{fuchsia}
+\addcolor{robinsegg}
+\addcolor{firmpink}
+\addcolor{jetaime}
+\addcolor{scorzonerabrown}
+\addcolor{whisperingwillow}
+\addcolor{tempermantalgreen}
+\addcolor{shadesofrhodonite}
+\addcolor{iolite}
+\addcolor{toxicfrog}
+
+% Remove the addcolor command
+\let\addcolor\undefined
