@@ -1,7 +1,7 @@
 %%%%%%%%%%%%%%%%%%
 % kramer.sty
 % Daniel Kramer's useful/command custom latex commands
-% v0.1.0
+% v0.2.0
 %
 %
 % (c) Daniel Kramer 2023
@@ -21,10 +21,16 @@
 % Custom Commands 
 %%%%%%%%%%%%%%%%%%%%%%
 
+% Set the TODO color
+% Initially black
+% Usage: \todo{red}
+\newcommand{\todocolor}{black}
+\newcommand{\settodocolor}[1]{\renewcommand{\todocolor}{#1}}
+
 % TODO command
 % Will have a warning if one exist
 % Usage: \todo{Something that needs to be done}
-\newcommand{\todo}[1]{(\textbf{{#1}})\PackageWarning{Kramer-Commands}{TODO in document. Fix and remove}}
+\newcommand{\todo}[1]{\textcolor{\todocolor}{(\textbf{{#1}})}\PackageWarning{Kramer}{TODO in document. Fix and remove}}
 
 % Command for correct spelling of periodogram.
 \def\pgram{periodogram\xspace}
