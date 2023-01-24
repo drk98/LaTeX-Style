@@ -48,9 +48,10 @@
 
 \acsetup{
     cite/group = true ,
-    cite/cmd = \parencite ,
-    cite/group/cmd = \cite,
+    cite/cmd = \citep,
+    cite/group/cmd = \citet,
     cite/group/pre={, },
+    single=true
 }
 
 % Needs the following bibtex entries
@@ -76,6 +77,7 @@
     cite={1976Ap&SS..39..447L,1982ApJ...263..835S}
 }
 \newcommand{\lsp}[0]{\ac{lsp}\xspace}
+\newcommand{\lsps}[0]{\acp{lsp}\xspace}
 
 % Needs the following bibtex entry 
 % If it already exist, plase make sure it has the same identifier
