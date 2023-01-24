@@ -97,7 +97,31 @@
 }
 \newcommand{\ztf}[0]{\ac{ztf}\xspace}
 
+% Needs the following bibtex entry
+% @misc{warner_asteroid_2021,title = {Asteroid {{Lightcurve Database}} ({{LCDB}}) {{Bundle V4}}.0},author = {Warner, Brian D. and Harris, Alan W. and Pravec, Petr},year = {2021},publisher = {{NASA Planetary Data System}},doi = {10.26033/J3XC-3359},abstract = {The asteroid lightcurve database (LCDB) is one of the more widely-used research tools for those doing research that compares and contrasts physical characteristics of asteroid spin axis rates, sizes, pole orientations, and/or taxonomic class - among others. The V4.0 release includes lightcurve photometry results for 0 targets. Each object has one to several dozen detailed records that contain results obtained by reviewing the literature.},collaborator = {PDS Small Bodies Node},keywords = {Asteroids,Comets}}
 
+\DeclareAcronym{lcdb}{
+    short=LCDB,
+    long=Light Curve Database,
+    cite=warner_asteroid_2021
+}
+\newcommand{\lcdb}[0]{\ac{lcdb}\xspace}
+
+% Needs the following bibtex entry
+% @article{juric_being_2021,title = {Being {{Ready}} at {{First Light}}: 10yr {{Simulations}} of the {{Legacy Survey}} of {{Space}} and {{Time}} ({{LSST}})},shorttitle = {Being {{Ready}} at {{First Light}}},author = {Juric, Mario and Eggl, Siegfried and Jones, Lynne and Moeyens, Joachim and Bellm, Eric and Ivezic, Zeljko and Lust, Nate and Stetzler, Steven and Cornwall, Samuel and Berres, Aidan and Chernyavskaya, Maria and Project, Rubin Observatory Construction},year = {2021},month = oct,journal = {Bulletin of the AAS},volume = {53},number = {7},issn = {0002-7537,},abstract = {Presentation \#101.06 in the session ``Asteroid Surveys: Gotta Catch 'em All''.},langid = {english},}
+\DeclareAcronym{sspdb}{
+    short=SSPDB,
+    long=Solar System Product Database,
+    cite=juric_being_2021
+}
+\newcommand{\sspdb}[0]{\ac{sspdb}\xspace}
+
+\DeclareAcronym{mpc}{
+    short=MPC,
+    long=Minor Planet Center,
+    % cite=https://www.minorplanetcenter.net/
+}
+\newcommand{\mpc}[0]{\ac{mpc}\xspace}
 
 
 %%%%%%%%%%%%%%%%%%%%%%
