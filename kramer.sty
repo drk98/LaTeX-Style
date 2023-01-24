@@ -16,6 +16,7 @@
 \usepackage{acro}
 \usepackage{etoolbox}
 \usepackage{xcolor}
+\usepackage{xstring}
 
 %%%%%%%%%%%%%%%%%%%%%%
 % Custom Commands 
@@ -46,10 +47,17 @@
 % Abbreviations
 %%%%%%%%%%%%%%%%%%%%%%
 
+% Test if a key is a url or other
+% If it's a url (has http) will display the url
+% If not, then call citep or citet on the input
+% If multiple entries are inserted and one is a url, then it will treat it all as a url
+\newcommand{\citetorurl}[1]{\IfSubStr{#1}{http}{(\url{#1})}{\citet{#1}}}
+\newcommand{\citeporurl}[1]{\IfSubStr{#1}{http}{(\url{#1})}{\citep{#1}}}
+
 \acsetup{
     cite/group = true ,
-    cite/cmd = \citep,
-    cite/group/cmd = \citet,
+    cite/cmd = \citeporurl,
+    cite/group/cmd = \citetorurl,
     cite/group/pre={, },
     single=true
 }
@@ -121,7 +129,7 @@
 \DeclareAcronym{mpc}{
     short=MPC,
     long=Minor Planet Center,
-    % cite=https://www.minorplanetcenter.net/
+    cite=https://www.minorplanetcenter.net/
 }
 \newcommand{\mpc}[0]{\ac{mpc}\xspace}
 
